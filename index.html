@@ -1,6 +1,6 @@
 <!doctype html>
 <head lang="pt-BR">
-  <title>Minha primeira PWA</title>
+  <title>Calculadora de Binários</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="manifest" href="/manifest.webmanifest" />
@@ -17,29 +17,41 @@
   <link rel = "apple-touch-icon" sizes = "60x60" href="/imagens/icones/apple-icon-60x60.png"/>
   <link rel = "apple-touch-icon" sizes = "72x72" href="/imagens/icones/apple-icon-72x72.png"/>
   <link rel = "apple-touch-icon" sizes = "76x76" href="/imagens/icones/apple-icon-76x76.png"/>
+  <link rel = "stylesheet" href="/estilos/estilos.css"/>
+ 
   <script>
-
     navigator.serviceWorker.register('/sw.js');
 
+    fetch('/conteudo.html')
+      .then(function(res) {
+        return res.text();
+      })
+      .then(function(conteudo){
+        document.getElementById('conteudo').innerHTML = conteudo;
+      });
+
     function f() {
-      alert('Sensacional!');
+      alert('Que bom! Você saber apertar um botão!');
     }
   </script>
 </head>
+
 <style>
   .wrapper {
       text-align: center;
   }
-
   .button {
       position: absolute;
       top: 50%;
   }
 </style>
+
 <body>
   <div class="wrapper">
     <p><img src="/imagens/icones/android-icon-192x192.png"/></p>
-    <h1>Minha primeira PWA</h1>
-    <p></p><button onclick="f()">Clique aqui</button></p>
+    <h1>Calculadora de Binários</h1>
+    <p></p><button onclick="f()">Não clique neste botão</button></p>
+    
   </div>
+  <div id="conteudo"></div>
 </body>

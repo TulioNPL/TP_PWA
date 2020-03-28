@@ -1,6 +1,6 @@
 {
-    "name": "Minha primeira PWA",
-    "short_name": "PWA",
+    "name": "Calculadora de Binários",
+    "short_name": "Bin Calculator",
     "description": "Esta é a primeira PWA que eu criei para aprender como se faz isso.",
     "lang": "pt-BR",
     "start_url": ".",
