@@ -1,4 +1,5 @@
-const staticCacheName = 'site-static';
+const staticCacheName = 'site-static-v1.0';
+const dynamicCache = 'site-dynamic-v1.0';
 const assets = ['/',
                 '/index.html',
                 '/js/app.js', 
@@ -24,7 +25,14 @@ self.addEventListener('install', event => {
 
 //activate service worker
 self.addEventListener('activate', event => {
-    //console.log('Service Worker ativado.');
+    event.waitUntil(
+        caches.keys().then(keys => {
+            return Promise.all(keys
+                .filter(key => key !== staticCacheName)
+                .map(key => caches.delete(key))
+            )
+        })
+    );
 });
 
 //fetch
@@ -33,7 +41,12 @@ self.addEventListener('fetch', event => {
 
     event.respondWith(
         caches.match(event.request).then(cacheResp => {
-            return cacheResp || fetch(event.request);
+            return cacheResp || fetch(event.request).then(fetchResp => {
+                return caches.open(dynamicCache).then(cache => {
+                    cache.put(event.request.url, fetchResp.clone());
+                    return fetchResp;
+                })
+            });
         })
     )
 });
