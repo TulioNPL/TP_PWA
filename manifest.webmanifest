@@ -1,6 +1,6 @@
 {
-    "name": "Calculadora de Binários",
-    "short_name": "Bin Calculator",
+    "name": "Agenda de Eventos",
+    "short_name": "AgendaDeEventos",
     "description": "Esta é a primeira PWA que eu criei para aprender como se faz isso.",
     "lang": "pt-BR",
     "start_url": ".",
@@ -9,32 +9,32 @@
     "background_color": "#fff",
     "theme_color": "#f66",
     "icons": [{
-        "src": "/imagens/icones/android-icon-36x36.png",
+        "src": "/img/icones/android-icon-36x36.png",
         "sizes": "36x36",
         "type": "image/png"
       },
       {
-        "src": "/imagens/icones/android-icon-48x48.png",
+        "src": "/img/icones/android-icon-48x48.png",
         "sizes": "48x48",
         "type": "image/png"
       },
       {
-        "src": "/imagens/icones/android-icon-72x72.png",
+        "src": "/img/icones/android-icon-72x72.png",
         "sizes": "72x72",
         "type": "image/png"
       },
       {
-        "src": "/imagens/icones/android-icon-96x96.png",
+        "src": "/img/icones/android-icon-96x96.png",
         "sizes": "96x96",
         "type": "image/png"
       },
       {
-        "src": "/imagens/icones/android-icon-144x144.png",
+        "src": "/img/icones/android-icon-144x144.png",
         "sizes": "144x144",
         "type": "image/png"
       },
       {
-        "src": "/imagens/icones/android-icon-192x192.png",
+        "src": "/img/icones/android-icon-192x192.png",
         "sizes": "192x192",
         "type": "image/png"
       }
