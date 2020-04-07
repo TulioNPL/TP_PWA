@@ -24,6 +24,7 @@
     <link rel="apple-touch-icon" href="/img/icones/apple-icon-144x144.png">
     <link rel="apple-touch-icon" href="/img/icones/apple-icon-120x120.png">
     <link rel="apple-touch-icon" href="/img/icones/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" href="/img/pmv-512x512.png">
     <meta name="apple-mobile-web-app-status-bar" content="#aa7700">
 </head>
 <body class="grey lighten-4">
@@ -111,7 +112,31 @@
         </form>
     </div>
 
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-analytics.js"></script>
+
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyDD7l2zbm03-KcXk6qGhVxhJT0MUMS83R0",
+        authDomain: "pwa-agendaeventos.firebaseapp.com",
+        databaseURL: "https://pwa-agendaeventos.firebaseio.com",
+        projectId: "pwa-agendaeventos",
+        storageBucket: "pwa-agendaeventos.appspot.com",
+        messagingSenderId: "67021182901",
+        appId: "1:67021182901:web:1db0f910d49424508aebfc",
+        measurementId: "G-TVJ2R8TJH1"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+    firebase.analytics();
+    </script>
+
     <script src="/js/ui.js"></script>
+    <script src="/js/db.js"></script>
     <script src="/js/app.js"></script>
 
 </body>
