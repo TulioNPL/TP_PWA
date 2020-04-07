@@ -1,3 +1,13 @@
+//offline
+db.enablePersistence()
+    .catch(err => {
+        if(err.code == 'failed-precondition') {
+            console.log('Falha na persistencia de dados');
+        } else if(err.code == 'unimplemented') {
+            console.log('Navegador sem suporte para persistencia de dados');
+        }
+    })
+
 //listener
 db.collection('Eventos').onSnapshot((snapshot) => {
     //console.log(snapshot.docChanges());
@@ -11,3 +21,20 @@ db.collection('Eventos').onSnapshot((snapshot) => {
     })
 })
 
+//add novo evento
+const form = document.querySelector('form');
+
+form.addEventListener('submit', evt => {
+    evt.preventDefault();
+
+    const event = {
+        title: form.title.value,
+        date: form.date.value
+    };
+
+    db.collection('Eventos').add(event)
+        .catch(err => console.log(err));
+
+    form.title.value = '';
+    form.date.value = '';
+})
