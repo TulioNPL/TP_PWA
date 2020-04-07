@@ -1,57 +1,97 @@
-<!doctype html>
-<head lang="pt-BR">
-  <title>Calculadora de Binários</title>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="manifest" href="/manifest.webmanifest" />
-  <link rel="icon" type="image/png" href="/imagens/icones/favicon.ico" />
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="PWA">
-  <link rel = "apple-touch-icon" sizes = "114x114" href="/imagens/icones/apple-icon-114x114.png"/>
-  <link rel = "apple-touch-icon" sizes = "120x120" href="/imagens/icones/apple-icon-120x120.png"/>
-  <link rel = "apple-touch-icon" sizes = "144x144" href="/imagens/icones/apple-icon-144x144.png"/>
-  <link rel = "apple-touch-icon" sizes = "152x152" href="/imagens/icones/apple-icon-152x152.png"/>
-  <link rel = "apple-touch-icon" sizes = "180x180" href="/imagens/icones/apple-icon-180x180.png"/>
-  <link rel = "apple-touch-icon" sizes = "57x57" href="/imagens/icones/apple-icon-57x57.png"/>
-  <link rel = "apple-touch-icon" sizes = "60x60" href="/imagens/icones/apple-icon-60x60.png"/>
-  <link rel = "apple-touch-icon" sizes = "72x72" href="/imagens/icones/apple-icon-72x72.png"/>
-  <link rel = "apple-touch-icon" sizes = "76x76" href="/imagens/icones/apple-icon-76x76.png"/>
-  <link rel = "stylesheet" href="/estilos/estilos.css"/>
- 
-  <script>
-    navigator.serviceWorker.register('/sw.js');
-
-    fetch('/conteudo.html')
-      .then(function(res) {
-        return res.text();
-      })
-      .then(function(conteudo){
-        document.getElementById('conteudo').innerHTML = conteudo;
-      });
-
-    function f() {
-      alert('O resultado é: ');
-    }
-  </script>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Agenda de Eventos</title>
+    <!--matierialize icons, css & js-->
+    <link   type="text/css" href="/css/materialize.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" href="/css/styles.css" rel="stylesheet">
+    <script type="text/javascript" src="/js/materialize.min.js"></Script>
 </head>
+<body class="grey lighten-4">
 
-<style>
-  .wrapper {
-      text-align: center;
-  }
-  .button {
-      position: absolute;
-      top: 50%;
-  }
-</style>
+    <!-- top nav -->
+    <nav class="z-depth-0">
+        <div class="nav-wrapper container">
+            <a href="/">Agenda de Eventos</a>
+            <span class="right black-text text-darken-1">
+                <i class="material-icons sidenav-trigger" data-target="side-menu">menu</i>
+            </span>
+        </div>
+    </nav>
 
-<body>
-  <div class="wrapper">
-    <p><img src="/imagens/icones/android-icon-192x192.png"/></p>
-    <h1>Calculadora de Binários</h1>
-    <p></p><button onclick="f()">Calcular</button></p>
-    
-  </div>
-  <div id="conteudo"></div>
+    <!-- side nav -->
+    <ul id="side-menu" class="sidenav side-menu">
+        <li><a class="subheader">AgendaEventos</a></li>
+        <li><a href="/" class="waves-effect">Home</a></li>
+        <li><a href="/pages/about.html" class="waves-effect">Sobre</a></li>
+        <li><div class="divider"></div></li>
+        <li><a href="/pages/contact.html" class="waves-effect">
+            <i class="material-icons">mail_outline</i>Contato</a>
+        </li>
+    </ul>
+
+    <!-- Events -->
+    <div class="events container grey-text text-darken-1">
+        <div class="card-panel event white row">
+            <img src="/img/Webp.net-resizeimage.png" alt="event thumb">
+            <div class="event-title">Festa</div>
+            <div class="event-date">20/10 19h</div>
+        </div>
+        <div class="event-delete">
+            <i class="material-icons">delete_outline</i>
+        </div>
+
+        <div class="card-panel event white row">
+            <img src="/img/Webp.net-resizeimage.png" alt="event thumb">
+            <div class="event-title">Festa</div>
+            <div class="event-date">20/10 19h</div>
+        </div>
+        <div class="event-delete">
+            <i class="material-icons">delete_outline</i>
+        </div>
+
+        <div class="card-panel event white row">
+            <img src="/img/Webp.net-resizeimage.png" alt="event thumb">
+            <div class="event-title">Festa</div>
+            <div class="event-date">20/10 19h</div>
+        </div>
+        <div class="event-delete">
+            <i class="material-icons">delete_outline</i>
+        </div>
+
+        <div class="center">
+            <a class="btn-floating btn-small btn-large add-btn sidenav-trigger" data-target="side-form">
+                <i class="material-icons">add</i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Add evento -->
+    <div id="side-form" class="sidenav side-form">
+        <form class="add-event container section">
+            <h6>Novo Evento</h6>
+            <div class="input-field">
+                <input placeholder="e. g. Evento" id="title" type="text" class="validate">
+                <label for="title">Nome do Event</label>
+            </div>
+            <div class="input-field">
+                <input placeholder="e. g. 10/02 19h" id="date" type="text" class="validate">
+                <label for="title">Data</label>
+            </div>
+            <div class="input-field">
+                <input placeholder="e. g. Pizzaria" id="local" type="text" class="validate">
+                <label for="title">Local</label>
+            </div>
+            <div class="input-field center">
+                <button class="btn-small">Add</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="/js/ui.js"></script>
+
 </body>
+</html>
