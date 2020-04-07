@@ -21,11 +21,11 @@ const renderEvent = (data, id) => {
                 <div class="event-date">${data.date}</div>
             </div>
             <div class="event-delete">
-                <i class="material-icons" data-id="${id}>delete_outline</i>
+                <i class="material-icons" data-id="${id}">delete_outline</i>
             </div>
         </div>         
     `;
 
     events.innerHTML += html;
 
-}
+};
