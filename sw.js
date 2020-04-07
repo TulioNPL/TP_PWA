@@ -11,6 +11,17 @@ const assets = ['/',
                 'https://fonts.googleapis.com/icon?family=Material+Icons',
                 'https://fonts.gstatic.com/s/materialicons/v50/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2',
                 '/pages/fallback.html'];
+            
+//limitacao da cache
+const limitCacheSize = (name, size) => {
+    caches.open(name).then(cache => {
+        cache.keys().then(keys => {
+            if(keys.length > size) {
+                cache.delete(keys[0]).then(limitCacheSize(name,size));
+            }
+        })
+    })
+}
 
 //install service worker
 self.addEventListener('install', event => {
@@ -45,6 +56,7 @@ self.addEventListener('fetch', event => {
             return cacheResp || fetch(event.request).then(fetchResp => {
                 return caches.open(dynamicCacheName).then(cache => {
                     cache.put(event.request.url, fetchResp.clone());
+                    limitCacheSize(dynamicCacheName, 15);
                     return fetchResp;
                 })
             });
@@ -55,4 +67,3 @@ self.addEventListener('fetch', event => {
         })
     )
 });
-
