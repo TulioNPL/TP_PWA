@@ -16,7 +16,7 @@ db.collection('Eventos').onSnapshot((snapshot) => {
         if(change.type === 'added') {
             renderEvent(change.doc.data(),change.doc.id);
         } else if (change.type === 'removed') {
-            //remove doc
+            removeEvent(change.doc.id);
         }
     })
 })
@@ -37,4 +37,15 @@ form.addEventListener('submit', evt => {
 
     form.title.value = '';
     form.date.value = '';
+})
+
+//deleta evento
+const eventContainer = document.querySelector('.events');
+
+eventContainer.addEventListener('click', evt => {
+    console.log(evt);
+    if(evt.target.tagName === 'I') {
+        const id = evt.target.getAttribute('data-id');
+        db.collection('Eventos').doc(id).delete();
+    }
 })

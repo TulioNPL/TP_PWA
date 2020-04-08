@@ -29,3 +29,9 @@ const renderEvent = (data, id) => {
     events.innerHTML += html;
 
 };
+
+//Remover evento
+const removeEvent = (id) => {
+    const event = document.querySelector(`.event[data-id=${id}]`);
+    event.remove();
+}
